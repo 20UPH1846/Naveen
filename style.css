@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Georgia', 'Palatino', serif;
+    background: linear-gradient(135deg, #1a0033 0%, #2d0052 50%, #1a0033 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Background Images Container */
+.background-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.16;
+}
+
+.bg-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px) brightness(0.9) contrast(1.1);
+    animation: floatImage 10s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .background-images {
+        opacity: 0.1;
+    }
+}
+
+/* Animated background */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    opacity: 0.3;
+    font-size: 2em;
+    animation: float 6s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 750px;
+    width: 100%;
+    padding: 50px;
+    z-index: 50;
+    position: relative;
+    border: 2px solid rgba(255, 105, 180, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.header .subtitle {
+    color: #666;
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.header .name {
+    color: #ff1493;
+    font-size: 1.3em;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.poem-container {
+    position: relative;
+    margin: 40px 0;
+}
+
+.poem-text {
+    color: #333;
+    line-height: 2;
+    font-size: 1.1em;
+    text-align: justify;
+    animation: fadeInUp 1.5s ease-out;
+    white-space: pre-line;
+    word-wrap: break-word;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.05) 0%, rgba(255, 192, 203, 0.05) 100%);
+    border-left: 4px solid #ff1493;
+    border-radius: 8px;
+}
+
+.poem-footer {
+    text-align: right;
+    color: #ff1493;
+    font-weight: bold;
+    font-size: 1.2em;
+    animation: fadeIn 2s ease-out;
+    margin-top: 20px;
+}
+
+.message-section {
+    background: #fff5f7;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px 0;
+    text-align: center;
+    animation: fadeInUp 1.8s ease-out;
+    border: 2px solid #ffc0cb;
+}
+
+.message-section h2 {
+    color: #ff1493;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.message-section p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1em;
+}
+
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heart-icon {
+    position: absolute;
+    font-size: 1.5em;
+    animation: floatAround 8s infinite;
+}
+
+@keyframes floatAround {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-30px) translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    color: white;
+    box-shadow: 0 10px 20px rgba(255, 20, 147, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 20, 147, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: white;
+    color: #ff1493;
+    border: 2px solid #ff1493;
+}
+
+.btn-secondary:hover {
+    background: #fff5f7;
+}
+
+.btn-secondary:active {
+    background: #ffe6f0;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.divider {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff1493, transparent);
+    margin: 20px auto;
+}
+
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff1493;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.8em;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-toggle.playing {
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    animation: heartbeat 0.6s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.closing-line {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ff1493;
+    font-weight: bold;
+    margin-top: 30px;
+    animation: fadeIn 2.5s ease-out;
+}
+
+.share-text {
+    color: #666;
+    margin-top: 20px;
+    font-size: 0.95em;
+}
+
+/* Scrollbar styling */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #ff1493;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #ff69b4;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .poem-text {
+        font-size: 1em;
+        padding: 20px;
+        line-height: 1.8;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .music-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6em;
+        top: 15px;
+        right: 15px;
+    }
+
+    .message-section h2 {
+        font-size: 1.2em;
+    }
+
+    .message-section p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .poem-text {
+        font-size: 0.95em;
+        padding: 15px;
+        line-height: 1.6;
+    }
+
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
